@@ -1,17 +1,17 @@
 [
     {
         "name": "Tippo",
-        "image": "skin.jpg",
+        "image": "images/test.jpg",
         "description": "Tippo is a smart tortoise who lives in the Fengoa Forest."
     },
     {
         "name": "Cabo",
-        "image": "skin.jpg",
+        "image": "images/test.jpg",
         "description": "Cabo is Tippo's crocodile friend."
     },
     {
         "name": "Wompom",
-        "image": "skin.jpg",
+        "image": "images/test.jpg",
         "description": "Wompom is Tippo's warthog friend."
     }
 ]

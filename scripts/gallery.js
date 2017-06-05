@@ -34,9 +34,6 @@ var Gallery = (function Gallery(galleryId)
 			}
             
             this.htmlTarget.appendChild(this.container);
-            
-            // show first slide
-            this.showSlide();
 		},
         showSlide: function showSlide()
         {

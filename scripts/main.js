@@ -10,7 +10,23 @@ window.addEventListener("DOMContentLoaded", main, false);
 
 function main()
 {
-	var xhr = new XMLHttpRequest();
+	
+    loadSlides("data/tippo-gallery.json");
+
+    /*Gallery.add(new Slide({name: "1. Tippo", image: "images/test.jpg", description: "Tippo is a smart tortoise who lives in the Fengoa Forest."}));
+	Gallery.add(new Slide({name: "2. Cabo", image: "images/test.jpg", description: "Cabo is Tippo's crocodile friend."}));
+	Gallery.add(new Slide({name: "3. Wompom", image: "images/test.jpg", description: "Wompom is Tippo's warthog friend."}));
+    Gallery.add(new Slide({name: "4. Tippo", image: "images/test.jpg", description: "Tippo is a smart tortoise who lives in the Fengoa Forest."}));
+	Gallery.add(new Slide({name: "5. Cabo", image: "images/test.jpg", description: "Cabo is Tippo's crocodile friend."}));*/
+
+	Gallery.htmlTarget = getId("gallery-target");
+	Gallery.init();
+    setInterval(function(){Gallery.nextSlide();}, 3000);
+}
+
+function loadSlides(url)
+{
+    var xhr = new XMLHttpRequest();
     xhr.addEventListener("readystatechange", loadData, false);
 
     function loadData()
@@ -22,18 +38,12 @@ function main()
             {
                 Gallery.add(new Slide(data[i]));
             }
+
+            // show first slide
+            Gallery.showSlide();
         }
     }
 
-    //xhr.open("GET", "data/tippo-gallery.json", true);
-    //xhr.send();
-    Gallery.add(new Slide({name: "1. Tippo", image: "images/test.jpg", description: "Tippo is a smart tortoise who lives in the Fengoa Forest."}));
-	Gallery.add(new Slide({name: "2. Cabo", image: "images/test.jpg", description: "Cabo is Tippo's crocodile friend."}));
-	Gallery.add(new Slide({name: "3. Wompom", image: "images/test.jpg", description: "Wompom is Tippo's warthog friend."}));
-    Gallery.add(new Slide({name: "4. Tippo", image: "images/test.jpg", description: "Tippo is a smart tortoise who lives in the Fengoa Forest."}));
-	Gallery.add(new Slide({name: "5. Cabo", image: "images/test.jpg", description: "Cabo is Tippo's crocodile friend."}));
-
-	Gallery.htmlTarget = getId("gallery-target");
-	Gallery.init();
-    setInterval(function(){Gallery.nextSlide();}, 3000);
+    xhr.open("GET", url, true);
+    xhr.send();
 }
